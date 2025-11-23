@@ -25,6 +25,7 @@ void afficherListeAdj(ListeAdj g) {
 ListeAdj readGraph(const char *filename) {
     FILE *file = fopen(filename, "rt");
     if (!file) {
+        perror("Erreur ouverture fichier");
         exit(EXIT_FAILURE);
     }
 
@@ -35,6 +36,7 @@ ListeAdj readGraph(const char *filename) {
     ListeAdj g = creerListeAdj(nbvert);
 
     while (fscanf(file, "%d %d %f", &depart, &arrivee, &proba) == 3) {
+        // Attention : on stocke arrivee telle quelle (ex: 2), mais l'index du tableau est depart-1
         ajouterCellule(&g.tableau[depart - 1], arrivee, proba);
     }
 
@@ -48,7 +50,7 @@ int estGrapheMarkov(ListeAdj *g) {
         float somme = 0;
         for (cell *c = g->tableau[i].head; c != NULL; c = c->suiv)
             somme += c->proba;
-        if (somme < 0.99 || somme > 1.01) {
+        if (somme < 0.99 || somme > 1.01) { // Tolérance float
             printf("Sommet %d : somme = %.2f\n", i + 1, somme);
             ok = 0;
         }
@@ -56,16 +58,16 @@ int estGrapheMarkov(ListeAdj *g) {
     if (ok)
         printf("Le graphe est un graphe de Markov.\n");
     else
-        printf("Le graphe n’est pas un graphe de Markov.\n");
+        printf("Le graphe n'est pas un graphe de Markov.\n");
     return ok;
 }
 
 char *getId(int num) {
-    static char id[4];
+    static char id[10];
     if (num <= 26)
         sprintf(id, "%c", 'A' + num - 1);
     else
-        sprintf(id, "A%c", 'A' + (num - 27));
+        sprintf(id, "S%d", num);
     return id;
 }
 

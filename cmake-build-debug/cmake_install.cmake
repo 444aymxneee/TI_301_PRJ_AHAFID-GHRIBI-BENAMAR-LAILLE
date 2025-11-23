@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/ayman/CLionProjects/untitled3
+# Install script for directory: C:/Users/ayman/CLionProjects/TI_301_PRJ_AHAFID-GHRIBI-BENAMAR-LAILLE
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/untitled3")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/2526_TI301_PJT")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -52,6 +52,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "C:/Users/ayman/CLionProjects/untitled3/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "C:/Users/ayman/CLionProjects/TI_301_PRJ_AHAFID-GHRIBI-BENAMAR-LAILLE/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
