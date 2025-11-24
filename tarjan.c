@@ -122,7 +122,6 @@ void analyseHasse(ListeAdj *g, t_partition *p) {
     for(int c=0; c < p->nb_classes; c++) {
         t_noeud_sommet *cur = p->tab_classes[c].sommets;
         while(cur) {
-            // cur->val est 1..N, donc index est val-1
             map_sommet_classe[cur->val - 1] = c;
             cur = cur->suiv;
         }
@@ -155,7 +154,7 @@ void analyseHasse(ListeAdj *g, t_partition *p) {
         }
     }
 
-    printf("\n--- Caracteristiques du Graphe [cite: 271] ---\n");
+    printf("\n--- Caracteristiques du Graphe ---\n");
 
     if (p->nb_classes == 1) {
         printf("-> Le graphe est IRREDUCTIBLE (une seule classe).\n");

@@ -22,3 +22,4 @@ void afficherListe(Liste liste) {
     }
     printf("NULL\n");
 }
+
